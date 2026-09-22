@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1069a09462707f146be90fcab6cf6f91
+guid: a162c4174691c6f41845f468991473e2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -778599382415075545
-    second: 53a84f4e-ee1d-4668-89cf-9867812fd97a_0
+      213: 7410832447944259331
+    second: liseAsansor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 53a84f4e-ee1d-4668-89cf-9867812fd97a_0
+      name: liseAsansor_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1131
-        height: 812
+        width: 1672
+        height: 941
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7279fc4acfbd135f0800000000000000
-      internalID: -778599382415075545
+      spriteID: 307f7add8d098d660800000000000000
+      internalID: 7410832447944259331
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      53a84f4e-ee1d-4668-89cf-9867812fd97a_0: -778599382415075545
+      liseAsansor_0: 7410832447944259331
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

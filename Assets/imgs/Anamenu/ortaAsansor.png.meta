@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1821088602ae8d948a27631b0d773f65
+guid: 4e76cb9b72b27034ba7ba663b476f8b2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8489133558622519127
-    second: ChatGPT Image 21 Eyl 2026 22_23_33_0
+      213: 6813380006482177466
+    second: ortaAsansor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChatGPT Image 21 Eyl 2026 22_23_33_0
+      name: ortaAsansor_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1672
+        width: 1671
         height: 941
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 75ffa848ef57fc570800000000000000
-      internalID: 8489133558622519127
+      spriteID: abd6e1e540dfd8e50800000000000000
+      internalID: 6813380006482177466
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ChatGPT Image 21 Eyl 2026 22_23_33_0: 8489133558622519127
+      ortaAsansor_0: 6813380006482177466
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
