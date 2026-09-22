@@ -19,7 +19,7 @@ public class levelyonlendirme : MonoBehaviour
     }
     public void ortaFen()
     {
-        SceneManager.LoadScene("ortaFen");
+        SceneManager.LoadScene("orta");
     }
     public void liseKimya()
     {

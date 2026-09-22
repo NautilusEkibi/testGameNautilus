@@ -518,9 +518,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1231622193}
-        m_TargetAssemblyTypeName: levelyonlendirme, Assembly-CSharp
-        m_MethodName: ortaFen
+      - m_Target: {fileID: 1639395669}
+        m_TargetAssemblyTypeName: girisDuzenleyici, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -530,9 +530,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1639395669}
-        m_TargetAssemblyTypeName: girisDuzenleyici, Assembly-CSharp
-        m_MethodName: PlayClickSound
+      - m_Target: {fileID: 1231622193}
+        m_TargetAssemblyTypeName: levelyonlendirme, Assembly-CSharp
+        m_MethodName: ortaFen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
