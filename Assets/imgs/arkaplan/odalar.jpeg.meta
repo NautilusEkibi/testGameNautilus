@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 91ec60c96a43a70479990d16cf6fc957
+guid: d0ae3c951f75c284d82a8000f116834d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 725915462948200863
-    second: liseOrtaSecim_0
+      213: -1401191915665481631
+    second: odalar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: liseOrtaSecim_0
+      name: odalar_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1672
-        height: 941
+        width: 1600
+        height: 901
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f91adf97448f21a00800000000000000
-      internalID: 725915462948200863
+      spriteID: 1602c946067fd8ce0800000000000000
+      internalID: -1401191915665481631
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      liseOrtaSecim_0: 725915462948200863
+      odalar_0: -1401191915665481631
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d903381bad8bda048a5f2af3ba488091
+guid: 48a963ce586831540affd64789b83715
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1401191915665481631
-    second: odalar_0
+      213: 8551677112230471568
+    second: giris_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: odalar_0
+      name: giris_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1671
+        width: 1672
         height: 941
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1602c946067fd8ce0800000000000000
-      internalID: -1401191915665481631
+      spriteID: 097e55c5609ada670800000000000000
+      internalID: 8551677112230471568
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      odalar_0: -1401191915665481631
+      giris_0: 8551677112230471568
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

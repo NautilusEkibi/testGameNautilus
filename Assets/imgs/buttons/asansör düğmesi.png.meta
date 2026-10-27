@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: a162c4174691c6f41845f468991473e2
+guid: fb64c83c35f579f45836088bdc1590e2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7410832447944259331
-    second: liseAsansor_0
+      213: -1493181584123198546
+    second: "asansord\xFCgm-removebg-preview (4)_0"
+  - first:
+      213: -5615996349380819887
+    second: "asansord\xFCgm-removebg-preview (4)_1"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: liseAsansor_0
+      name: "asansord\xFCgm-removebg-preview (4)_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1672
-        height: 941
+        x: 122
+        y: 70
+        width: 256
+        height: 322
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 307f7add8d098d660800000000000000
-      internalID: 7410832447944259331
+      spriteID: ea38e2da247274be0800000000000000
+      internalID: -1493181584123198546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "asansord\xFCgm-removebg-preview (4)_1"
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 213
+        width: 30
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15404473319ff02b0800000000000000
+      internalID: -5615996349380819887
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      liseAsansor_0: 7410832447944259331
+      "asansord\xFCgm-removebg-preview (4)_0": -1493181584123198546
+      "asansord\xFCgm-removebg-preview (4)_1": -5615996349380819887
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
