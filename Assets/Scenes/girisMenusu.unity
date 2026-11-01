@@ -2546,7 +2546,7 @@ GameObject:
   - component: {fileID: 1326730665}
   - component: {fileID: 1326730664}
   m_Layer: 0
-  m_Name: Olay Sistemi
+  m_Name: Event System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3251,7 +3251,7 @@ GameObject:
   - component: {fileID: 248175141}
   - component: {fileID: 827836521}
   m_Layer: 5
-  m_Name: Arayuz
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
