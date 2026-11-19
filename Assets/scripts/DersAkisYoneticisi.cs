@@ -5,12 +5,14 @@ public class DersAkisYoneticisi : MonoBehaviour
 {
     public GameObject asansor;
     public GameObject fenBilgisi;
+    public GameObject matematikBilgisi;
+    public GameObject turkceBilgisi;
     public GameObject girisBilgisi;
     public GameObject asansorPaneli;
     public GameObject katPaneli;
     public GameObject uniteKoridoru;
     public UniteKoridorYoneticisi uniteKoridorYoneticisi;
-    public LevelGecisYoneticisi levelGecisYoneticisi;
+    public SahneYonlendirici sahneYonlendirici;
 
     public Button ortaokulFenButonu;
     public Button ortaokulMatematikButonu;
@@ -36,6 +38,7 @@ public class DersAkisYoneticisi : MonoBehaviour
         if (asansorPaneli != null) asansorPaneli.SetActive(false);
         if (asansor != null) asansor.SetActive(false);
         if (uniteKoridoru != null) uniteKoridoru.SetActive(false);
+        DersBilgisiniGoster(0);
 
         Bagla(ortaokulFenButonu, FenSec);
         Bagla(ortaokulMatematikButonu, OrtaokulMatematikSec);
@@ -77,7 +80,7 @@ public class DersAkisYoneticisi : MonoBehaviour
         if (katPaneli != null) katPaneli.SetActive(false);
         if (asansorPaneli != null) asansorPaneli.SetActive(false);
         if (asansor != null) asansor.SetActive(true);
-        if (fenBilgisi != null) fenBilgisi.SetActive(true);
+        DersBilgisiniGoster(seciliDers);
         if (girisBilgisi != null) girisBilgisi.SetActive(false);
         uniteKoridorYoneticisi?.GorselleriGuncelle();
     }
@@ -97,7 +100,15 @@ public class DersAkisYoneticisi : MonoBehaviour
         if (katPaneli != null) katPaneli.SetActive(false);
         if (asansorPaneli != null) asansorPaneli.SetActive(false);
         if (asansor != null) asansor.SetActive(true);
+        DersBilgisiniGoster(seciliDers);
         if (girisBilgisi != null) girisBilgisi.SetActive(false);
+    }
+
+    private void DersBilgisiniGoster(int ders)
+    {
+        if (fenBilgisi != null) fenBilgisi.SetActive(ders == 1);
+        if (matematikBilgisi != null) matematikBilgisi.SetActive(ders == 2);
+        if (turkceBilgisi != null) turkceBilgisi.SetActive(ders == 3);
     }
 
     public void KatSec(int sinif)
@@ -108,7 +119,7 @@ public class DersAkisYoneticisi : MonoBehaviour
         {
             if (sinif > 8) return;
             seciliSinif = sinif;
-            if (seciliDers == 1) FenOrtaokulKoridorunuAc();
+            OrtaokulKoridorunuAc();
             return;
         }
 
@@ -116,8 +127,9 @@ public class DersAkisYoneticisi : MonoBehaviour
             seciliSinif = sinif;
     }
 
-    private void FenOrtaokulKoridorunuAc()
+    private void OrtaokulKoridorunuAc()
     {
+        DersBilgisiniGoster(0);
         if (katPaneli != null) katPaneli.SetActive(false);
         if (asansorPaneli != null) asansorPaneli.SetActive(false);
         if (asansor != null) asansor.SetActive(false);
@@ -129,7 +141,22 @@ public class DersAkisYoneticisi : MonoBehaviour
     {
         if (seciliDers == 0 || seciliSinif == 0) return;
         UniteKoridorYoneticisi.seciliUnite = unite;
-        if (levelGecisYoneticisi != null)
-            levelGecisYoneticisi.SeviyeAc(ortaOkulMu, seciliDers, seciliSinif, unite);
+        if (sahneYonlendirici != null)
+            sahneYonlendirici.UniteyiAc(ortaOkulMu, seciliDers, seciliSinif, unite);
+    }
+
+    public void AnaMenuyeDon()
+    {
+        if (katPaneli != null) katPaneli.SetActive(false);
+        if (asansorPaneli != null) asansorPaneli.SetActive(false);
+        if (asansor != null) asansor.SetActive(false);
+        if (uniteKoridoru != null) uniteKoridoru.SetActive(false);
+        if (girisBilgisi != null) girisBilgisi.SetActive(true);
+
+        seciliDers = 0;
+        seciliSinif = 0;
+        ortaOkulMu = true;
+        DersBilgisiniGoster(0);
+        uniteKoridorYoneticisi?.GorselleriGuncelle();
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class AnaMenuDonusButonu : MonoBehaviour
 {
+    public DersAkisYoneticisi dersAkisi;
     public GameObject anaMenuArkaPlani;
     public GameObject asansor;
     public GameObject uniteKoridoru;
@@ -11,6 +12,12 @@ public class AnaMenuDonusButonu : MonoBehaviour
 
     public void AnaMenuyeDon()
     {
+        if (dersAkisi != null)
+        {
+            dersAkisi.AnaMenuyeDon();
+            return;
+        }
+
         if (asansorPaneli != null) asansorPaneli.SetActive(false);
         if (katPaneli != null) katPaneli.SetActive(false);
         if (asansor != null) asansor.SetActive(false);
