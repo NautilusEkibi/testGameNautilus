@@ -9,14 +9,14 @@ public class AsansorPanelButonu : MonoBehaviour
 
     public void KatPaneliniAcKapat()
     {
-        if (dersAkisi == null || DersAkisYoneticisi.seciliDers == 0 || asansorPaneli == null)
+        if (dersAkisi == null || DersSecimVerisi.SeciliDers == 0 || asansorPaneli == null)
             return;
 
         bool panelAc = !asansorPaneli.activeSelf;
         if (ortaokulKatButonlari != null)
-            ortaokulKatButonlari.SetActive(panelAc && DersAkisYoneticisi.ortaOkulMu);
+            ortaokulKatButonlari.SetActive(panelAc && DersSecimVerisi.OrtaokulMu);
         if (liseKatButonlari != null)
-            liseKatButonlari.SetActive(panelAc && !DersAkisYoneticisi.ortaOkulMu);
+            liseKatButonlari.SetActive(panelAc && !DersSecimVerisi.OrtaokulMu);
 
         asansorPaneli.SetActive(panelAc);
     }

@@ -25,15 +25,9 @@ public class DersAkisYoneticisi : MonoBehaviour
     public Button[] liseKatButonlari;
     public Button[] uniteButonlari;
 
-    // 0=belli değil, 1=ortaokul fen, 2=ortaokul matematik, 3=ortaokul Türkçe,
-    // 4=lise fizik, 5=lise kimya, 6=lise matematik, 7=lise biyoloji.
-    public static int seciliDers = 0;
-    // 0=belli değil, 5, 6, 7 veya 8=sınıf.
-    public static int seciliSinif = 0;
-    public static bool ortaOkulMu = true;
-
     private void Start()
     {
+        DersSecimVerisi.AnaMenuyeDon();
         if (katPaneli != null) katPaneli.SetActive(false);
         if (asansorPaneli != null) asansorPaneli.SetActive(false);
         if (asansor != null) asansor.SetActive(false);
@@ -64,6 +58,8 @@ public class DersAkisYoneticisi : MonoBehaviour
         {
             int unite = i + 1;
             Bagla(uniteButonlari[i], () => UniteSec(unite));
+            if (uniteButonlari[i] != null)
+                uniteButonlari[i].interactable = false;
         }
     }
 
@@ -74,33 +70,23 @@ public class DersAkisYoneticisi : MonoBehaviour
 
     public void FenSec()
     {
-        ortaOkulMu = true;
-        seciliDers = 1;
-        seciliSinif = 0;
-        if (katPaneli != null) katPaneli.SetActive(false);
-        if (asansorPaneli != null) asansorPaneli.SetActive(false);
-        if (asansor != null) asansor.SetActive(true);
-        DersBilgisiniGoster(seciliDers);
-        if (girisBilgisi != null) girisBilgisi.SetActive(false);
-        uniteKoridorYoneticisi?.GorselleriGuncelle();
+        DersSec(DersSecimVerisi.Fen, true);
     }
 
-    private void OrtaokulMatematikSec() { DersSec(2, true); }
-    private void OrtaokulTurkceSec() { DersSec(3, true); }
-    private void LiseFizikSec() { DersSec(4, false); }
-    private void LiseKimyaSec() { DersSec(5, false); }
-    private void LiseMatematikSec() { DersSec(6, false); }
-    private void LiseBiyolojiSec() { DersSec(7, false); }
+    private void OrtaokulMatematikSec() { DersSec(DersSecimVerisi.Matematik, true); }
+    private void OrtaokulTurkceSec() { DersSec(DersSecimVerisi.Turkce, true); }
+    private void LiseFizikSec() { DersSec(DersSecimVerisi.LiseFizik, false); }
+    private void LiseKimyaSec() { DersSec(DersSecimVerisi.LiseKimya, false); }
+    private void LiseMatematikSec() { DersSec(DersSecimVerisi.LiseMatematik, false); }
+    private void LiseBiyolojiSec() { DersSec(DersSecimVerisi.LiseBiyoloji, false); }
 
     private void DersSec(int ders, bool ortaOkul)
     {
-        ortaOkulMu = ortaOkul;
-        seciliDers = ders;
-        seciliSinif = 0;
+        DersSecimVerisi.DersiSec(ders, ortaOkul);
         if (katPaneli != null) katPaneli.SetActive(false);
         if (asansorPaneli != null) asansorPaneli.SetActive(false);
         if (asansor != null) asansor.SetActive(true);
-        DersBilgisiniGoster(seciliDers);
+        DersBilgisiniGoster(DersSecimVerisi.SeciliDers);
         if (girisBilgisi != null) girisBilgisi.SetActive(false);
     }
 
@@ -113,18 +99,19 @@ public class DersAkisYoneticisi : MonoBehaviour
 
     public void KatSec(int sinif)
     {
-        if (seciliDers == 0 || sinif < 5) return;
+        if (DersSecimVerisi.SeciliDers == 0 || sinif < 5) return;
 
-        if (ortaOkulMu)
+        if (DersSecimVerisi.OrtaokulMu)
         {
             if (sinif > 8) return;
-            seciliSinif = sinif;
+            if (!DersSecimVerisi.SinifiSec(sinif)) return;
             OrtaokulKoridorunuAc();
             return;
         }
 
-        if (seciliDers >= 4 && sinif >= 9 && sinif <= 12)
-            seciliSinif = sinif;
+        if (DersSecimVerisi.SeciliDers >= DersSecimVerisi.LiseFizik &&
+            sinif >= 9 && sinif <= 12)
+            DersSecimVerisi.SinifiSec(sinif);
     }
 
     private void OrtaokulKoridorunuAc()
@@ -135,14 +122,45 @@ public class DersAkisYoneticisi : MonoBehaviour
         if (asansor != null) asansor.SetActive(false);
         if (uniteKoridoru != null) uniteKoridoru.SetActive(true);
         uniteKoridorYoneticisi?.GorselleriGuncelle();
+        KapilarinEtkilesiminiGuncelle();
     }
 
-    public void UniteSec(int unite)
+    public void UniteSec(int kapiNo)
     {
-        if (seciliDers == 0 || seciliSinif == 0) return;
-        UniteKoridorYoneticisi.seciliUnite = unite;
+        if (DersSecimVerisi.SeciliDers == 0 || DersSecimVerisi.SeciliSinif == 0) return;
+
+        if (!DersSecimVerisi.AltKonuEkraniAcik)
+        {
+            if (!DersSecimVerisi.UniteyiSec(kapiNo)) return;
+            uniteKoridorYoneticisi?.GorselleriGuncelle();
+            KapilarinEtkilesiminiGuncelle();
+            return;
+        }
+
+        if (!DersSecimVerisi.AltKonuyuSec(kapiNo)) return;
         if (sahneYonlendirici != null)
-            sahneYonlendirici.UniteyiAc(ortaOkulMu, seciliDers, seciliSinif, unite);
+            sahneYonlendirici.AltKonuyuAc(
+                DersSecimVerisi.OrtaokulMu,
+                DersSecimVerisi.SeciliDers,
+                DersSecimVerisi.SeciliSinif,
+                DersSecimVerisi.SeciliUnite,
+                DersSecimVerisi.SeciliAltKonu);
+    }
+
+    private void KapilarinEtkilesiminiGuncelle()
+    {
+        int aktifKapiAdedi = DersSecimVerisi.AltKonuEkraniAcik
+            ? DersIcerikKatalogu.AltKonuSayisi(
+                DersSecimVerisi.SeciliDers,
+                DersSecimVerisi.SeciliSinif,
+                DersSecimVerisi.SeciliUnite)
+            : DersIcerikKatalogu.UniteSayisi(
+                DersSecimVerisi.SeciliDers,
+                DersSecimVerisi.SeciliSinif);
+
+        for (int i = 0; uniteButonlari != null && i < uniteButonlari.Length; i++)
+            if (uniteButonlari[i] != null)
+                uniteButonlari[i].interactable = i < aktifKapiAdedi;
     }
 
     public void AnaMenuyeDon()
@@ -153,9 +171,7 @@ public class DersAkisYoneticisi : MonoBehaviour
         if (uniteKoridoru != null) uniteKoridoru.SetActive(false);
         if (girisBilgisi != null) girisBilgisi.SetActive(true);
 
-        seciliDers = 0;
-        seciliSinif = 0;
-        ortaOkulMu = true;
+        DersSecimVerisi.AnaMenuyeDon();
         DersBilgisiniGoster(0);
         uniteKoridorYoneticisi?.GorselleriGuncelle();
     }

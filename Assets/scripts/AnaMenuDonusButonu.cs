@@ -25,8 +25,6 @@ public class AnaMenuDonusButonu : MonoBehaviour
         if (anaMenuArkaPlani != null) anaMenuArkaPlani.SetActive(true);
         if (girisBilgisi != null) girisBilgisi.SetActive(true);
 
-        DersAkisYoneticisi.seciliDers = 0;
-        DersAkisYoneticisi.seciliSinif = 0;
-        DersAkisYoneticisi.ortaOkulMu = true;
+        DersSecimVerisi.AnaMenuyeDon();
     }
 }

@@ -15,11 +15,18 @@ public class SahneYonlendirici : MonoBehaviour
 
     public SahneRotasi[] sahneRotalari;
 
-    public void UniteyiAc(bool ortaokulMu, int ders, int sinif, int unite)
+    public void AltKonuyuAc(bool ortaokulMu, int ders, int sinif, int unite, int altKonu)
     {
-        if (ders == 0 || sinif == 0 || unite < 1 || unite > 7)
+        string[] altKonuBasliklari = DersIcerikKatalogu.AltKonuBasliklari(ders, sinif, unite);
+        if (ders == 0 || sinif == 0 || unite < 1 || unite > 7 ||
+            altKonu < 1 || altKonu > altKonuBasliklari.Length ||
+            DersSecimVerisi.OrtaokulMu != ortaokulMu ||
+            DersSecimVerisi.SeciliDers != ders ||
+            DersSecimVerisi.SeciliSinif != sinif ||
+            DersSecimVerisi.SeciliUnite != unite ||
+            DersSecimVerisi.SeciliAltKonu != altKonu)
         {
-            Debug.LogWarning($"Geçersiz yönlendirme: ders {ders}, sınıf {sinif}, ünite {unite}.", this);
+            Debug.LogWarning($"Geçersiz alt konu yönlendirmesi: ders {ders}, sınıf {sinif}, ünite {unite}, alt konu {altKonu}.", this);
             return;
         }
 
